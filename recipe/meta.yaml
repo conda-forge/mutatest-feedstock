@@ -1,5 +1,5 @@
 {% set name = "mutatest" %}
-{% set version = "2.2.0" %}
+{% set version = "3.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d3b3d12893f53255e92af6191945ff667d754aa2f304c4f0dfe62f7aa2caf2d1
+  sha256: 0d40f126f0f14d0b7c106e7ffad9243c62167eba1bed96fc143d9bd19b82d5a0
 
 build:
   noarch: python
