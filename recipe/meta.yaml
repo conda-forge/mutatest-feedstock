@@ -1,5 +1,5 @@
 {% set name = "mutatest" %}
-{% set version = "3.0.0" %}
+{% set version = "3.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0d40f126f0f14d0b7c106e7ffad9243c62167eba1bed96fc143d9bd19b82d5a0
+  sha256: 4aa9ea7ca006a12db0fb81ca6c81816ff49a6a29a4095aa673ed64f9f43a3ea9
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-      - mutatest = mutatest.cli:cli_main
+    - mutatest = mutatest.cli:cli_main
 
 requirements:
   host:
