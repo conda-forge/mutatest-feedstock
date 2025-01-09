@@ -6,22 +6,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 274ecf0d10b68a7c6f9753788912cc82a7c39e505fc3f0b215d0b57efd7bff52
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - mutatest = mutatest.cli:cli_main
 
 requirements:
   host:
-    - python ==3.8
+    - python {{ python_min }}
     - pip
   run:
-    - python ==3.8
+    - python >={{ python_min }}
     - coverage >=4.4,<6.0
     - typing-extensions
 
@@ -34,6 +34,7 @@ test:
     - freezegun
     - hypothesis
     - pytest-cov
+    - python {{ python_min }}
   source_files:
     - pytest.ini
   commands:
